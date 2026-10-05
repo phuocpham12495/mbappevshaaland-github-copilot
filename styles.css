@@ -1,0 +1,70 @@
+:root {
+  --bg-1: #100b2a;
+  --bg-2: #261837;
+  --panel: #111f3e;
+  --panel-border: #f4d15f;
+  --gold: #ffd550;
+  --red: #ff4a4a;
+  --cyan: #7fe9ff;
+  --text: #f5f7ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 185, 88, 0.18), transparent 30%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  color: var(--text);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.game-shell {
+  position: relative;
+  width: min(92vw, 1280px);
+  aspect-ratio: 16 / 9;
+  border: 6px solid #111827;
+  box-shadow: 0 0 0 6px #f6d25c, 0 18px 52px rgba(0, 0, 0, 0.45);
+  background: #0f172a;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background: #000;
+}
+
+.floating-message {
+  position: absolute;
+  left: 50%;
+  top: 61%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(20px, 3vw, 62px);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffb16a;
+  text-shadow: 0 0 18px rgba(255, 164, 67, 0.8), 6px 6px 0 rgba(168, 16, 24, 0.75);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.floating-message.visible {
+  opacity: 1;
+}
